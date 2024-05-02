@@ -1,28 +1,28 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
 
 <h:head>
-    <title>Exemplo JSF</title>
+	<title>Exemplo JSF</title>
 </h:head>
 
 <h:body>
-    <h:form id="pessoaForm">
+<h1>Olá jsf</h1>
+	<h:form id="pessoaForm">
       
         Nome:
         <h:inputText id="nome" value="#{pessoaBean.nome}"></h:inputText>
-        <br/>
 
-       	Sobrenome:
-        <h:inputText id="sobrenome" value="#{pessoaBean.sobrenome}" ></h:inputText>
-        <br/>
-
-        <h:outputText id="saida" value="#{pessoaBean.nomeCompleto}"></h:outputText>
-        <br/>
-        <h:commandButton value="Mostrar Nome" action="#{pessoaBean.mostrarNome}"/>
-    </h:form>
+		<h:commandButton binding="#{pessoaBean.commandButton}" value="Mostrar Nome"
+			action="#{pessoaBean.mostrarNome}" />
+		<h:dataTable  value="#{pessoaBean.nomes}" var="nome">
+			<h:column>
+				<h:outputText value="#{nome}"></h:outputText>
+			</h:column>
+		</h:dataTable>
+	</h:form>
 </h:body>
 
 </html>

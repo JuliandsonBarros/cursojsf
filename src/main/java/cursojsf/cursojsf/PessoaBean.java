@@ -1,18 +1,41 @@
 package cursojsf.cursojsf;
 
-import javax.faces.bean.ManagedBean;
+import java.util.ArrayList;
+import java.util.List;
 
-@ManagedBean
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.bean.ViewScoped;
+import javax.faces.component.html.HtmlCommandButton;
+
+
+@ManagedBean(name = "pessoaBean")
+@ViewScoped
 public class PessoaBean {
 
 	private String nome;
-	private String sobrenome;
-	private String nomeCompleto;
-	
+	private HtmlCommandButton commandButton;
+	private List<String> nomes = new ArrayList<String>();
+
 	public String mostrarNome() {
-		nomeCompleto = nome + " " +  sobrenome;
+		nomes.add(nome);
+		if(nomes.size() >= 2) {
+			commandButton.setDisabled(true);
+			return "paginanavegada";
+		}
 		return "";
 	}
+
+
+	public List<String> getNomes() {
+		return nomes;
+	}
+
+
+	public void setNomes(List<String> nomes) {
+		this.nomes = nomes;
+	}
+
 
 	public String getNome() {
 		return nome;
@@ -21,20 +44,13 @@ public class PessoaBean {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
-	public String getSobrenome() {
-		return sobrenome;
-	}
-
-	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
-	}
 	
-	public String getNomeCompleto() {
-		return nomeCompleto;
+	public HtmlCommandButton getCommandButton() {
+		return commandButton;
 	}
 
-	public void setNomeCompleto(String nomeCompleto) {
-		this.nomeCompleto = nomeCompleto;
+
+	public void setCommandButton(HtmlCommandButton commandButton) {
+		this.commandButton = commandButton;
 	}
 }
