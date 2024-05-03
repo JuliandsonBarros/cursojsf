@@ -6,11 +6,22 @@
 
 <h:head>
 	<title>Exemplo JSF</title>
+	<script>
+		function alterarValorDoCampo(){
+			var campo = document.getElementById('formPessoa:nome');
+			campo.value = 'Campo clicado';
+		}
+	</script>
 </h:head>
 <h:body>
 	<h:form id="formPessoa">
 		<h1>Olá jsfpagina navegada</h1>
-		<h:commandButton value="Navegar" action="index.xhtml"></h:commandButton>
+		
+		<h:inputText id="nome" onclick="this.value='Outro Valor'" onchange="this.value = this.value.toUpperCase();"></h:inputText>
+
+		<h:commandButton value="Clicar"
+			onclick="alterarValorDoCampo();" />
+	
 	</h:form>
 </h:body>
 </html>

@@ -14,6 +14,14 @@
       
         Nome:
         <h:inputText id="nome" value="#{pessoaBean.nome}"></h:inputText>
+        <br/>
+        <br/>
+        Senha:
+        <h:inputSecret id="senha" value="#{pessoaBean.senha}"></h:inputSecret>
+        <br/>
+        <br/>
+        Descrição:
+        <h:inputTextarea id="texto" value="#{pessoaBean.texto}" rows="10" cols="10"></h:inputTextarea>
 
 		<h:commandButton binding="#{pessoaBean.commandButton}" value="Mostrar Nome"
 			action="#{pessoaBean.mostrarNome}" />
